@@ -78,3 +78,11 @@ storm jar storm-twitter-xxx-ranking-jar-with-dependencies.jar com.willwy.hdp.top
 
 Storm UI: http://54.238.237.32:8744/index.html
 
+
+## Ref
+
+1. https://moises-trelles.github.io/post.html#
+2. http://tecadmin.net/install-apache-maven-on-centos/
+3. https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
+4. https://community.hortonworks.com/questions/28684/creating-a-hive-table-with-orgapachehcatalogdatajs.html
+5. http://hortonworks.com/tutorials/ 
