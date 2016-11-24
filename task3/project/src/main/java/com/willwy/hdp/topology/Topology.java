@@ -11,11 +11,10 @@ import org.apache.storm.hdfs.bolt.rotation.FileRotationPolicy;
 import org.apache.storm.hdfs.bolt.rotation.TimedRotationPolicy;
 import org.apache.storm.hdfs.bolt.sync.CountSyncPolicy;
 import org.apache.storm.hdfs.bolt.sync.SyncPolicy;
-
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.topology.TopologyBuilder;
-import backtype.storm.StormSubmitter;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.topology.TopologyBuilder;
+import org.apache.storm.StormSubmitter;
 
 import com.willwy.hdp.spouts.TwitterSpout;
 import com.willwy.hdp.bolts.FilterWordsBolt;

@@ -59,4 +59,22 @@ Aimee_Cottle    2013-06-20T12:08:14     Gastroenteritis has pretty much killed m
 
 Implement a storm topology that streams in tweets (https://dev.twitter.com/streaming/overview), does some interesting analytics in real-time on the tweets, and then persists into HDFS.
 
+### Get code & compile
+
+```bash
+git clone https://github.com/wang-yang/hdp_task.git
+cd hdp_task/task3/project
+mvn compile
+mvn assembly:assembly
+```
+
+### Submit topology to Storm cluster
+
+```bash
+storm jar storm-twitter-xxx-ranking-jar-with-dependencies.jar com.willwy.hdp.topology.Topology
+```
+
+### Check topology status
+
 Storm UI: http://54.238.237.32:8744/index.html
+
