@@ -2,22 +2,22 @@
 
 ## Hive
 
-1. Store the twitter data in the attached file called sample_twitter_data in HDFS. The data is in json format and should not be altered.
+Store the twitter data in the attached file called sample_twitter_data in HDFS. The data is in json format and should not be altered.
 
 Address: `/task3/sample_twitter_data.txt`
 
-2. Once the data is in HDFS, create an hcat/hive schema to be able to answer the following question: What are all the tweets by the twitter user "Aimee_Cottle"? You will need to provide the query that answers this question.
+Once the data is in HDFS, create an hcat/hive schema to be able to answer the following question: What are all the tweets by the twitter user "Aimee_Cottle"? You will need to provide the query that answers this question.
 
 Hint: there are multiple ways to do this, the preferred method involves org.apache.hcatalog.data.JsonSerDe - if that does nott work search for Json serde in the www - there are some you can compile from source to get it to work
 
 ### Some note:
 
-The CR character (0x0d) is displayed as ^M.
-Apple Macintosh     [CR]      (#x000D)            \r    Carriage Return
-UNIX Based Systems  [LF]      (#x000A)            \n    line-feed
-DOS Based Systems   [CR][LF]  (#x000D)(#x000A)    \r\n  carriage-return/line-feed
+The CR character (0x0d) is displayed as ^M.  
+Apple Macintosh     [CR]      (#x000D)            \r    Carriage Return  
+UNIX Based Systems  [LF]      (#x000A)            \n    line-feed  
+DOS Based Systems   [CR][LF]  (#x000D)(#x000A)    \r\n  carriage-return/line-feed  
 
-Sample:
+#### Json Sample:
 
 ```json
 {"user":{
@@ -31,6 +31,8 @@ Sample:
  "geolocation":null
 }
 ```
+
+#### SQL Solution:
 
 ```sql
 set hive.support.sql11.reserved.keywords=false;
@@ -47,7 +49,8 @@ from tweets_json where user.screenname='Aimee_Cottle'
 order by createddate;
 ```
 
-Result:
+#### Result:
+
 ```
 Aimee_Cottle    2013-06-20T12:08:14     Gastroenteritis has pretty much killed me this week :( off work for a few days whilst I recover!
 ```
