@@ -1,11 +1,14 @@
+/*
+Preparation
+*/
 
-/*(499152, 72690, '2000-07-20', '2001-07-20')*/
+/*Eg: (499152, 72690, '2000-07-20', '2001-07-20')*/
 drop table if exists salaries;
 create table if not exists salaries 
   (emp_no bigint, salary bigint, from_date date, to_date date) 
   stored as textfile;
 
-/*(499993, '1963-06-04', 'DeForest', 'Mullainathan', 'M', '1997-04-07')*/
+/*Eg: (499993, '1963-06-04', 'DeForest', 'Mullainathan', 'M', '1997-04-07')*/
 drop table if exists employees;
 create table if not exists employees
   (emp_no bigint, birth_date date, first_name string, last_name string, 
@@ -68,10 +71,3 @@ Result:
 
 
 
-
-
-
-
-
-
- 
