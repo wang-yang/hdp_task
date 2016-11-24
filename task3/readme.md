@@ -71,7 +71,7 @@ mvn assembly:assembly
 ### Submit topology to Storm cluster
 
 ```bash
-storm jar storm-twitter-xxx-ranking-jar-with-dependencies.jar com.willwy.hdp.topology.Topology
+storm jar storm-twitter-xxx-ranking-jar-with-dependencies.jar com.willwy.hdp.topology.Topology twitter_test
 ```
 
 ### Check topology status
