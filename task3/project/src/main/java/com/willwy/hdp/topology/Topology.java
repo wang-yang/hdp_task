@@ -74,10 +74,13 @@ public class Topology {
     conf.setDebug(false);
     //conf.put("topology.acker.executors", 0);
     //conf.put("topology.workers", 5);
+    System.out.println("---Submit topology Step 1---");
     if(args != null && args.length > 0) {
+      System.out.println("---Submit topology Step 2---");
       StormSubmitter.submitTopology(args[0],
                                     conf,
                                     builder.createTopology());
+      System.out.println("---Submit topology Step 3---");
     }
   }
 }
