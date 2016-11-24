@@ -22,15 +22,9 @@ public class FilterWordsBolt extends BaseRichBolt {
   private static final long serialVersionUID = 6069146554651714100L;
   
   private Set<String> XXX_LIST = new HashSet<String>(Arrays.asList(new String[] {
-            "equitation", "aviron", "judo", "voile", "escrime", "natation", 
-            "tir", "saut", "disque", "cyclisme", "boxe","gymnastique",
-            "diving","swimming","polo","archery","athletics","badminton",
-            "basketball","boxing","canoeing","cycling","equestrian",
-            "fencing","hockey","football","golf","gymnastics","handball",
-            "judo","pentathlon","rowing",
-            "rugby","sailing","shooting","taekwondo","tennis","triathlon",
-            "volleyball","weightlifting",
-            "wrestling"
+            "tensorflow", "cnn", "rnn", "lstm", "google", "facebook", 
+            "caffe","Theano","theano","Tensorflow","CNN","RNN",
+            "LSTM", "Google", "Facebook"
     }));
   
     private OutputCollector collector;

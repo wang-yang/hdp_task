@@ -20,9 +20,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 
 public class TwitterSpout extends BaseRichSpout {
-
   private static final long serialVersionUID = 1L;
-
   private SpoutOutputCollector collector;
   private LinkedBlockingQueue<Status> queue;
   private TwitterStream twitterStream;
@@ -42,7 +40,7 @@ public class TwitterSpout extends BaseRichSpout {
     .setOAuthConsumerSecret("OWnXC06jExeRcKFlGK0xVqM8GB302hV4yKKnFCvoZiriRSoUh7")
     .setOAuthAccessToken("1156536030-QspRp7wMme6xN5KqMBgBq8IEWzzSuZRrbFYEAaE")
     .setOAuthAccessTokenSecret("bF9bpiLfuIkHsBbVM8v5K2MAZAIQLiVEYfKtPNNMKMfZt");
-//    .setJSONStoreEnabled(true);
+    //.setJSONStoreEnabled(true);
 
     StatusListener listener = new StatusListener() {
       @Override

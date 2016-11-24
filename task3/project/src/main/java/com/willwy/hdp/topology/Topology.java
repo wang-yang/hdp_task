@@ -56,11 +56,17 @@ public class Topology {
 
     TopologyBuilder builder = new TopologyBuilder();
     builder.setSpout("TwitterSpout", new TwitterSpout());
-    builder.setBolt("WordSplitterBolt", new WordSplitterBolt(5))
+    int minWordLength = 5;
+    builder.setBolt("WordSplitterBolt", new WordSplitterBolt(minWordLength))
            .shuffleGrouping("TwitterSpout");
     builder.setBolt("FilterWordsBolt", new FilterWordsBolt())
            .shuffleGrouping("WordSplitterBolt");
-    builder.setBolt("WordsCounterBolt", new WordCounterBolt(60, 5 * 60, 30))
+    long logIntervalSec = 300;
+    long clearIntervalSec = 1500;
+    int topListSize = 10;
+    builder.setBolt("WordsCounterBolt", new WordCounterBolt(logIntervalSec,
+                                                            clearIntervalSec,
+                                                            topListSize))
            .shuffleGrouping("FilterWordsBolt");
     builder.setBolt("HdfsBoltWriter", hdfsBolt)
            .shuffleGrouping("WordsCounterBolt");

@@ -24,8 +24,8 @@ public class WordSplitterBolt extends BaseRichBolt {
   private OutputCollector collector;
 
   private Set<String> XXX_LIST = new HashSet<String>(Arrays.asList(new String[] {
-      "olympique", "rio2016", "rioolympic2016h", "rio", "jo", "olimpiadas", 
-      "olyympiques", "games", "olympic", "olympics" }));
+      "tensorflow", "Tensorflow", "TensowFlow", "Google", "google", "facebook", 
+      "AI", "Theano", "Caffe", "caffe" }));
 
   public WordSplitterBolt(int minWordLength) {
     this.minWordLength = minWordLength;
