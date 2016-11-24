@@ -17,15 +17,40 @@ Apple Macintosh     [CR]      (#x000D)            \r    Carriage Return
 UNIX Based Systems  [LF]      (#x000A)            \n    line-feed
 DOS Based Systems   [CR][LF]  (#x000D)(#x000A)    \r\n  carriage-return/line-feed
 
-```sql
-CREATE EXTERNAL TABLE tweets (  createddate string,  geolocation string,  tweetmessage string,  `user` struct<geoenabled:boolean, id:int, name:string, screenname:string, userlocation:string>)
-  ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe' LOCATION '/user/root/';
-   
-   SELECT DISTINCT tweetmessage, user.name, createddate 
-     FROM tweets WHERE user.name = 'Hortonworks'
-         ORDER BY createddate;
+Sample:
+
+```json
+{"user":{
+    "userlocation":"Cinderford, Gloucestershire",
+    "id":230231618,
+    "name":"Aimee",
+    "screenname":"Aimee_Cottle",
+    "geoenabled":true},
+ "tweetmessage":"Gastroenteritis has pretty much killed me this week :( off work for a few days whilst I recover!",
+ "createddate":"2013-06-20T12:08:14",
+ "geolocation":null
+}
 ```
 
+```sql
+set hive.support.sql11.reserved.keywords=false;
+create external table tweets_json
+  (tweetmessage string,
+   createddate string,
+   geolocation string,
+   `user` struct<userlocation:string, id:int, name:string, screenname:string, geoenabled:boolean>)
+row format serde 'org.apache.hive.hcatalog.data.JsonSerDe' location '/task3/';
+
+set hive.support.sql11.reserved.keywords=false;
+select distinct user.screenname, createddate, tweetmessage  
+from tweets_json where user.screenname='Aimee_Cottle' 
+order by createddate;
+```
+
+Result:
+```
+Aimee_Cottle    2013-06-20T12:08:14     Gastroenteritis has pretty much killed me this week :( off work for a few days whilst I recover!
+```
 
 ## Streaming
 
